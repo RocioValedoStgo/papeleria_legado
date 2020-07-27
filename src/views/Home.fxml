@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="papeleria_legado.Controllers.HomeController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="180.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
          <children>
@@ -43,8 +44,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="users" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Usuarios">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#clickedUsers" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Usuarios">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -55,8 +59,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="providers" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="231.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Proveedores">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#clickedProviders" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Proveedores">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -67,8 +74,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="categories" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Categorías">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#clickedCategories" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Categorías">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -79,8 +89,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="products" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="311.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Productos">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#clickedProducts" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Productos">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -91,8 +104,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="sells" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Ventas">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#clickedSells" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Ventas">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -103,8 +119,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="makeSale" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: Transparent;" text="Realizar venta">
+            <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#clickedMakeSale" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: Transparent;" text="Realizar venta">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -115,8 +134,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="cash_register" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
+            <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#clickedCashRegister" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -127,8 +149,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="logout" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="496.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cerrar sesión">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#clickedLogout" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cerrar sesión">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -139,6 +164,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
@@ -157,7 +185,7 @@
                   <DropShadow color="#dadada" height="5.0" offsetY="2.0" radius="2.0" width="5.0" />
                </effect>
             </Rectangle>
-            <Button layoutX="464.0" layoutY="434.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="260.0" style="-fx-background-color: BLACK;" text="Guardar" textFill="WHITE">
+            <Button fx:id="btnSave" layoutX="464.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#clickedSave" prefHeight="33.0" prefWidth="260.0" style="-fx-background-color: BLACK;" text="Guardar" textFill="WHITE">
                <font>
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
@@ -167,7 +195,7 @@
                   <Font name="Trebuchet MS Bold" size="22.0" />
                </font>
             </Label>
-            <TextField layoutX="464.0" layoutY="381.0" prefHeight="33.0" prefWidth="260.0" />
+            <TextField fx:id="input" layoutX="464.0" layoutY="381.0" prefHeight="33.0" prefWidth="260.0" />
             <Label layoutX="281.0" layoutY="37.0" text="Bienvenido">
                <font>
                   <Font name="Trebuchet MS Bold" size="55.0" />
@@ -189,25 +217,25 @@
                   <Image url="@../assets/images/icons/money.png" />
                </image>
             </ImageView>
-            <Circle fill="WHITE" layoutX="212.0" layoutY="323.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="385.0" prefHeight="26.0" prefWidth="340.0" text="Usuario" textAlignment="CENTER">
+            <Circle fill="WHITE" layoutX="212.0" layoutY="323.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="385.0" prefHeight="26.0" prefWidth="340.0" text="Usuario" textAlignment="CENTER">
                <font>
                   <Font name="Trebuchet MS Bold" size="22.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="416.0" prefHeight="26.0" prefWidth="340.0" text="Rol" textAlignment="CENTER">
+            <Label fx:id="rol" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="416.0" prefHeight="26.0" prefWidth="340.0" text="Rol" textAlignment="CENTER">
                <font>
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="462.0" prefHeight="26.0" prefWidth="340.0" text="Fecha" textAlignment="CENTER">
+            <Label fx:id="date" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="462.0" prefHeight="26.0" prefWidth="340.0" text="Fecha" textAlignment="CENTER">
                <font>
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="85.0" fitWidth="90.0" layoutX="167.0" layoutY="282.0">
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="152.0" layoutY="264.0">
                <image>
-                  <Image url="@../assets/images/icons/user.png" />
+                  <Image url="@../assets/images/user.png" />
                </image>
             </ImageView>
          </children>
