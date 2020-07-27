@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="papeleria_legado.RegisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="papeleria_legado.Controllers.RegisterController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="417.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +32,7 @@
                   <Font name="Trebuchet MS Bold" size="55.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtPassword" layoutX="13.0" layoutY="437.0" prefHeight="33.0" prefWidth="270.0">
+            <PasswordField fx:id="password" layoutX="13.0" layoutY="437.0" prefHeight="33.0" prefWidth="270.0">
                <font>
                   <Font name="Trebuchet MS" size="15.0" />
                </font>
@@ -40,8 +41,11 @@
                <font>
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <TextField fx:id="txtName" layoutX="14.0" layoutY="171.0" prefHeight="33.0" prefWidth="270.0" style="-fx-border-radius: 500;">
+            <TextField fx:id="name" layoutX="14.0" layoutY="171.0" prefHeight="33.0" prefWidth="270.0" style="-fx-border-radius: 500;">
                <font>
                   <Font name="Trebuchet MS" size="15.0" />
                </font>
@@ -61,12 +65,12 @@
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtLastName" layoutX="301.0" layoutY="171.0" prefHeight="33.0" prefWidth="270.0">
+            <TextField fx:id="last_name" layoutX="301.0" layoutY="171.0" prefHeight="33.0" prefWidth="270.0">
                <font>
                   <Font name="Trebuchet MS" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtTelephone" layoutX="14.0" layoutY="266.0" prefHeight="33.0" prefWidth="270.0">
+            <TextField fx:id="phone" layoutX="14.0" layoutY="266.0" prefHeight="33.0" prefWidth="270.0">
                <font>
                   <Font name="Trebuchet MS" size="15.0" />
                </font>
@@ -76,7 +80,7 @@
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUsername" layoutX="301.0" layoutY="265.0" prefHeight="33.0" prefWidth="270.0">
+            <TextField fx:id="username" layoutX="301.0" layoutY="265.0" prefHeight="33.0" prefWidth="270.0">
                <font>
                   <Font name="Trebuchet MS" size="15.0" />
                </font>
@@ -86,7 +90,7 @@
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtEmail" layoutX="13.0" layoutY="355.0" prefHeight="33.0" prefWidth="557.0">
+            <TextField fx:id="email" layoutX="13.0" layoutY="355.0" prefHeight="33.0" prefWidth="557.0">
                <font>
                   <Font name="Trebuchet MS" size="15.0" />
                </font>
@@ -101,7 +105,7 @@
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbTurn" layoutX="301.0" layoutY="437.0" prefHeight="33.0" prefWidth="270.0" style="-fx-background-color: white; -fx-border-color: #BABABA;" />
+            <ComboBox fx:id="turn" layoutX="301.0" layoutY="437.0" prefHeight="33.0" prefWidth="270.0" promptText="Seleccione el turno" style="-fx-background-color: white; -fx-border-color: #BABABA;" />
             <Button layoutY="44.0" mnemonicParsing="false" onMouseClicked="#clickedBack" prefHeight="33.0" prefWidth="40.0" style="-fx-background-color: TRANSPARENT;" textFill="WHITE">
                <font>
                   <Font name="Trebuchet MS Bold" size="18.0" />
@@ -111,6 +115,9 @@
                      <image>
                         <Image url="@../assets/images/icons/back.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
             </Button>
