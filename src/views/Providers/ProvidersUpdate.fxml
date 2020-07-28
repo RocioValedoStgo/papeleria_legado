@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,22 +13,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="papeleria_legado.Controllers.Providers.Edit">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="180.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="cash_register" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#cashRegister" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
-               <font>
-                  <Font name="Trebuchet MS" size="16.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="22.0">
-                     <image>
-                        <Image url="@../../assets/images/icons/register-cash.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
             <ImageView fitHeight="115.0" fitWidth="127.0" layoutX="27.0" layoutY="6.0">
                <image>
                   <Image url="@../../assets/images/legado_papeleria.jpeg" />
@@ -52,6 +42,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="users" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#users" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Usuarios">
                <font>
@@ -64,6 +57,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="providers" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#providers" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Proveedores">
                <font>
@@ -76,6 +72,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="categories" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#categories" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Categorías">
                <font>
@@ -88,6 +87,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="products" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#products" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Productos">
                <font>
@@ -100,6 +102,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="sells" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#sells" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Ventas">
                <font>
@@ -112,6 +117,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="makeSale" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#makeSales" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: Transparent;" text="Realizar venta">
                <font>
@@ -124,6 +132,24 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="cash_register" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#cashRegister" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/register-cash.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="logout" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cerrar sesión">
                <font>
@@ -136,81 +162,93 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="600.0" prefWidth="822.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="555.0" prefWidth="817.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5ce1e6" height="169.0" layoutY="-5.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 18; -fx-arc-height: 18;" width="822.0" />
-            <Label fx:id="titleNameProvider" alignment="CENTER" layoutX="-1.0" layoutY="37.0" prefHeight="64.0" prefWidth="823.0" text="Proveedor">
+            <Label fx:id="titleProviderName" alignment="CENTER" layoutX="-1.0" layoutY="37.0" prefHeight="64.0" prefWidth="823.0" text="Editando proveedor">
                <font>
                   <Font name="Trebuchet MS Bold" size="55.0" />
                </font>
             </Label>
             <Line endX="670.0" layoutX="126.0" layoutY="127.0" startX="-100.0" stroke="#777777" strokeWidth="0.5" />
-            <Label layoutX="26.0" layoutY="138.0" text="Inicio &gt; Proveedores &gt; Ver proveedor &gt; ">
-               <font>
-                  <Font name="Trebuchet MS" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="nameProvider" layoutX="237.0" layoutY="138.0" text="Proveedor">
+            <Label layoutX="26.0" layoutY="138.0" text="Inicio &gt; Proveedores &gt; Editar proveedor &gt;">
                <font>
                   <Font name="Trebuchet MS" size="12.0" />
                </font>
             </Label>
             <Rectangle fx:id="image" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="349.0" layoutX="26.0" layoutY="178.0" stroke="BLACK" strokeType="INSIDE" width="190.0" />
-            <Label fx:id="lblProveedor" layoutX="238.0" layoutY="178.0" text="Nombre del proveedor">
+            <TextField fx:id="name" layoutX="238.0" layoutY="200.0" prefHeight="33.0" prefWidth="570.0" style="-fx-border-radius: 4;">
                <font>
-                  <Font name="Trebuchet MS Bold" size="32.0" />
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font></TextField>
+            <Label layoutX="238.0" layoutY="178.0" text="Nombre">
+               <font>
+                  <Font name="Trebuchet MS" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="238.0" layoutY="252.0" text="Dirección:">
+            <Label layoutX="238.0" layoutY="259.0" text="Dirección">
                <font>
-                  <Font name="Trebuchet MS Bold" size="22.0" />
+                  <Font name="Trebuchet MS" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="329.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#edit" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: Black; -fx-border-radius: 4;" text="Editar" textFill="WHITE">
+            <TextField fx:id="address" layoutX="238.0" layoutY="281.0" prefHeight="33.0" prefWidth="570.0" style="-fx-border-radius: 4;">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font></TextField>
+            <Label layoutX="538.0" layoutY="338.0" text="Correo electrónico">
+               <font>
+                  <Font name="Trebuchet MS" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="238.0" layoutY="338.0" text="Teléfono">
+               <font>
+                  <Font name="Trebuchet MS" size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="324.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#clickedUpdate" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: Black; -fx-border-radius: 4;" text="Actualizar" textFill="WHITE">
                <font>
                   <Font name="Trebuchet MS Bold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button layoutX="520.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 4;" text="Cancelar">
+            <Button layoutX="515.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#clickedCancel" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 4;" text="Cancelar">
                <font>
                   <Font name="Trebuchet MS Bold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Label fx:id="lblAddress" layoutX="346.0" layoutY="252.0" text="Dirección">
-               <font>
-                  <Font name="Trebuchet MS" size="22.0" />
-               </font>
-            </Label>
-            <Label layoutX="238.0" layoutY="327.0" text="Correo electrónico:">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="22.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblEmail" layoutX="446.0" layoutY="327.0" text="email@example.com">
-               <font>
-                  <Font name="Trebuchet MS" size="22.0" />
-               </font>
-            </Label>
-            <Label layoutX="238.0" layoutY="406.0" text="Teléfono:">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="22.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblPhone" layoutX="346.0" layoutY="406.0" text="Teléfono">
-               <font>
-                  <Font name="Trebuchet MS" size="22.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="347.0" fitWidth="188.0" layoutX="27.0" layoutY="179.0">
                <image>
                   <Image url="@../../assets/images/providers.jpg" />
                </image>
             </ImageView>
+            <TextField fx:id="phone" layoutX="238.0" layoutY="360.0" prefHeight="33.0" prefWidth="270.0" style="-fx-border-radius: 4;">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="email" layoutX="538.0" layoutY="360.0" prefHeight="33.0" prefWidth="270.0" style="-fx-border-radius: 4;">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblProveedor" layoutX="251.0" layoutY="138.0" text="Proveedor">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

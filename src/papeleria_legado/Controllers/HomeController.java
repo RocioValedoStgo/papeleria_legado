@@ -65,8 +65,9 @@ public class HomeController {
 	}
 
 	@FXML
-	void clickedProviders(MouseEvent event) {
-
+	void clickedProviders(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML

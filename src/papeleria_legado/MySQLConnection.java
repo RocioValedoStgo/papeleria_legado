@@ -1,11 +1,13 @@
 package papeleria_legado;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import papeleria_legado.Models.Provider;
 import papeleria_legado.Models.User;
 
 public class MySQLConnection {
@@ -92,8 +94,8 @@ public class MySQLConnection {
 		return listUsers;
 	}
 
-	public int editUser(int pk, String name, String last_name, String username, String phone, String turn,
-			String email) throws SQLException {
+	public int editUser(int pk, String name, String last_name, String username, String phone, String turn, String email)
+			throws SQLException {
 		connection = getConnection();
 		String query = "UPDATE papelerialegado.users SET name=?, last_name=?, username=?, phone=?, turn=?, email=? WHERE id = ?";
 		preparedStatement = connection.prepareStatement(query);
@@ -102,7 +104,7 @@ public class MySQLConnection {
 		preparedStatement.setString(3, username);
 		preparedStatement.setString(4, phone);
 		preparedStatement.setString(5, turn);
-		//preparedStatement.setInt(6, rol);
+		// preparedStatement.setInt(6, rol);
 		preparedStatement.setString(6, email);
 		preparedStatement.setInt(7, pk);
 		return preparedStatement.executeUpdate();
@@ -149,9 +151,82 @@ public class MySQLConnection {
 		Timestamp ts = new Timestamp(time);
 		return ts;
 	}
-	
+
 	// PROVIDERS
-	
-	
+
+	public ObservableList<Provider> indexProviders() throws SQLException {
+		connection = getConnection();
+		ObservableList<Provider> listProviders = FXCollections.observableArrayList();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT * FROM papelerialegado.providers";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			listProviders.add(new Provider(rs.getInt("id"), rs.getString("name"), rs.getString("address"),
+					rs.getString("email"), rs.getString("phone")));
+		}
+		return listProviders;
+	}
+
+	public boolean saveProvider(String name, String address, String phone, String email) throws SQLException {
+		connection = getConnection();
+		Timestamp created = generateTimestamp();
+		Statement statement = connection.createStatement();
+		String queryInsert = "INSERT INTO papelerialegado.providers(name, address, phone, email, created_at)" + "VALUES ('"
+				+ name + "','" + address + "','" + phone + "','" + email + "','" + created + "')";
+		statement.executeUpdate(queryInsert);
+
+		return true;
+	}
+
+	public Provider getProvider(int pk) throws SQLException {
+		connection = getConnection();
+		Provider provider = null;
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT * FROM papelerialegado.providers WHERE id = " + pk;
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		if (rs.next()) {
+			provider = new Provider(rs.getInt("id"), rs.getString("name"), rs.getString("address"),
+					rs.getString("email"), rs.getString("phone"));
+		}
+		return provider;
+	}
+
+	public ArrayList<String> getProviders() throws SQLException {
+		connection = getConnection();
+		ArrayList<String> listProviders = new ArrayList<>();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT id, nombre FROM papelerialegado.providers";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			listProviders.add(String.valueOf(rs.getInt("id") + " " + rs.getString("name")));
+		}
+		return listProviders;
+	}
+
+	public int editProvider(int pk, String name, String address, String phone, String email) throws SQLException {
+		connection = getConnection();
+		String query = "UPDATE papelerialegado.providers SET name=?, address=?, phone=?, email=? WHERE id = ?";
+		PreparedStatement ps = (PreparedStatement) connection.prepareStatement(query);
+		ps.setString(1, name);
+		ps.setString(2, address);
+		ps.setString(3, phone);
+		ps.setString(4, email);
+		ps.setInt(5, pk);
+		return ps.executeUpdate();
+	}
+
+	public int destroyProvider(Integer id) throws SQLException {
+		connection = getConnection();
+		Statement statement;
+		String query = "DELETE FROM papelerialegado.providers WHERE papelerialegado.providers.id = " + id;
+		statement = (Statement) connection.createStatement();
+		return statement.executeUpdate(query);
+	}
 
 }
