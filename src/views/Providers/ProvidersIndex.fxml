@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="papeleria_legado.Controllers.Providers.Index">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="180.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
          <children>
@@ -42,6 +43,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="users" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#users" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Usuarios">
                <font>
@@ -54,6 +58,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="providers" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#providers" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Proveedores">
                <font>
@@ -66,6 +73,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="categories" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#categories" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Categorías">
                <font>
@@ -78,6 +88,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="products" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#products" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Productos">
                <font>
@@ -90,6 +103,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="sells" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#sells" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Ventas">
                <font>
@@ -102,6 +118,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="makeSale" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#makeSales" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: Transparent;" text="Realizar venta">
                <font>
@@ -114,6 +133,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="cash_register" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#cashRegister" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
                <font>
@@ -126,6 +148,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="logout" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cerrar sesión">
                <font>
@@ -138,6 +163,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
@@ -152,7 +180,7 @@
                </font>
             </Label>
             <Line endX="670.0" layoutX="126.0" layoutY="127.0" startX="-100.0" stroke="#777777" strokeWidth="0.5" />
-            <Button fx:id="createProvider" layoutX="609.0" layoutY="144.0" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: black; -fx-background-radius: 6;" text="Crear proveedor" textFill="WHITE">
+            <Button layoutX="609.0" layoutY="144.0" mnemonicParsing="false" onMouseClicked="#clickedCreateProvider" prefHeight="40.0" style="-fx-background-color: black; -fx-background-radius: 6;" text="Crear proveedor" textFill="WHITE">
                <font>
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
@@ -163,21 +191,27 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Label layoutX="26.0" layoutY="138.0" text="Inicio &gt; Proveedores">
                <font>
                   <Font name="Trebuchet MS" size="12.0" />
                </font>
             </Label>
-            <TableView layoutX="26.0" layoutY="213.0" prefHeight="329.0" prefWidth="770.0" style="-fx-background-color: white;">
+            <TableView fx:id="tableProviders" layoutX="26.0" layoutY="213.0" prefHeight="329.0" prefWidth="770.0" style="-fx-background-color: white;">
               <columns>
-                <TableColumn fx:id="id" prefWidth="46.0" text="ID" />
-                <TableColumn fx:id="name" prefWidth="172.0" text="Nombre" />
-                  <TableColumn fx:id="address" prefWidth="160.0" text="Dirección" />
-                  <TableColumn fx:id="telephone" prefWidth="103.0" text="Teléfono" />
-                  <TableColumn fx:id="email" prefWidth="174.0" text="Correo electrónico" />
-                  <TableColumn prefWidth="114.0" text="Opciones" />
+                <TableColumn fx:id="id" prefWidth="40.0" text="ID" />
+                <TableColumn fx:id="name" prefWidth="178.0" text="Nombre" />
+                  <TableColumn fx:id="address" prefWidth="140.0" text="Dirección" />
+                  <TableColumn fx:id="phone" prefWidth="98.0" text="Teléfono" />
+                  <TableColumn fx:id="email" prefWidth="173.0" text="Correo electrónico" />
+                  <TableColumn fx:id="options" prefWidth="140.0" text="Opciones" />
               </columns>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TableView>
          </children>
       </AnchorPane>
