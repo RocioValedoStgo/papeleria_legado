@@ -114,7 +114,8 @@ public class Save {
 
 	@FXML
 	void products(MouseEvent event) throws Exception {
-
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
@@ -132,6 +133,12 @@ public class Save {
 	void users(MouseEvent event) throws Exception {
 		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
 		indexUsers.showView(event);
+	}
+
+	@FXML
+	void clickedCancel(MouseEvent event) throws Exception {
+		Index indexCategories = new Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
@@ -156,7 +163,15 @@ public class Save {
 				image = null;
 			}
 			MySQLConnection mySQL = new MySQLConnection();
-			if (mySQL.saveCategory(name.getText(), Integer.parseInt(father_id.getValue().substring(0, 1)), image)) {
+			String father = father_id.getValue();
+			if (father == null) {
+				father = "0";
+			} else {
+				father = father_id.getValue();
+			}
+			father = father.substring(0, 1);
+			System.out.println(father_id.getValue());
+			if (mySQL.saveCategory(name.getText(), Integer.parseInt(father), image)) {
 				successfullyAlert();
 				Index indexCategories = new Index();
 				indexCategories.showView(event);
@@ -207,12 +222,6 @@ public class Save {
 			sb.append(rndChar);
 		}
 		return sb.toString();
-	}
-
-	@FXML
-	void clickedCancel(MouseEvent event) throws Exception {
-		Index indexCategories = new Index();
-		indexCategories.showView(event);
 	}
 
 	public void showView(Event event) throws Exception {

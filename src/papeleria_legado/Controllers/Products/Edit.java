@@ -80,18 +80,21 @@ public class Edit {
 	}
 
 	@FXML
-	void categories(MouseEvent event) {
-
+	void categories(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
-	void home(MouseEvent event) {
-
+	void home(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.HomeController home = new papeleria_legado.Controllers.HomeController();
+		home.showView(event);
 	}
 
 	@FXML
-	void logout(MouseEvent event) {
-
+	void logout(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.LoginController logout = new papeleria_legado.Controllers.LoginController();
+		logout.showView(event);
 	}
 
 	@FXML
@@ -100,13 +103,15 @@ public class Edit {
 	}
 
 	@FXML
-	void products(MouseEvent event) {
-
+	void products(MouseEvent event) throws Exception {
+		Index indexProducts = new Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
-	void providers(MouseEvent event) {
-
+	void providers(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML
@@ -115,8 +120,9 @@ public class Edit {
 	}
 
 	@FXML
-	void users(MouseEvent event) {
-
+	void users(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
+		indexUsers.showView(event);
 	}
 
 	@FXML
@@ -165,15 +171,30 @@ public class Edit {
 			if (band) {
 				destroyImage(nameImg);
 				String imgName = saveImage(imgFile);
-				if (mySQL.editProductImage(getPkProduct(), name.getText(), description.getText(), Float.parseFloat(price.getText()),
-						Integer.parseInt(quantity.getText()), Integer.parseInt(provider_id.getValue().substring(0, 1)), Integer.parseInt(category_id.getValue().substring(0, 1)), imgName) == 1) {
-					
+				if (mySQL.editProductImage(getPkProduct(), name.getText(), description.getText(),
+						Float.parseFloat(price.getText()), Integer.parseInt(quantity.getText()),
+						Integer.parseInt(provider_id.getValue().substring(0, 1)),
+						Integer.parseInt(category_id.getValue().substring(0, 1)), imgName) == 1) {
+					successfullyAlert();
+					Profile profileProduct = new Profile();
+					profileProduct.setPkProduct(getPkProduct());
+					profileProduct.showView(event);
 				} else {
 					errorAlert();
 				}
-					
+
 			} else {
-				
+				if (mySQL.editProduct(getPkProduct(), name.getText(), description.getText(),
+						Float.parseFloat(price.getText()), Integer.parseInt(quantity.getText()),
+						Integer.parseInt(provider_id.getValue().substring(0, 1)),
+						Integer.parseInt(category_id.getValue().substring(0, 1))) == 1) {
+					successfullyAlert();
+					Profile profileProduct = new Profile();
+					profileProduct.setPkProduct(getPkProduct());
+					profileProduct.showView(event);
+				} else {
+					errorAlert();
+				}
 			}
 		}
 	}
@@ -226,13 +247,6 @@ public class Edit {
 			alert.showAndWait();
 			return true;
 		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setHeaderText(null);
-			alert.setContentText("Ocurrió un error");
-			alert.setGraphic(new ImageView(this.getClass().getResource("/assets/images/icons/error.png").toString()));
-			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-			stage.getIcons().add(new Image(this.getClass().getResource("/assets/images/icons/error.png").toString()));
-			alert.showAndWait();
 			return false;
 		}
 	}

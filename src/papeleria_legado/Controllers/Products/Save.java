@@ -1,6 +1,7 @@
 package papeleria_legado.Controllers.Products;
 
 import papeleria_legado.MySQLConnection;
+import papeleria_legado.Controllers.Products.Index;
 
 import java.io.File;
 import java.io.IOException;
@@ -70,18 +71,21 @@ public class Save {
 	}
 
 	@FXML
-	void categories(MouseEvent event) {
-
+	void categories(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
-	void home(MouseEvent event) {
-
+	void home(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.HomeController home = new papeleria_legado.Controllers.HomeController();
+		home.showView(event);
 	}
 
 	@FXML
-	void logout(MouseEvent event) {
-
+	void logout(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.LoginController logout = new papeleria_legado.Controllers.LoginController();
+		logout.showView(event);
 	}
 
 	@FXML
@@ -90,13 +94,15 @@ public class Save {
 	}
 
 	@FXML
-	void products(MouseEvent event) {
-
+	void products(MouseEvent event) throws Exception {
+		Index indexProducts = new Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
-	void providers(MouseEvent event) {
-
+	void providers(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML
@@ -105,13 +111,15 @@ public class Save {
 	}
 
 	@FXML
-	void users(MouseEvent event) {
-
+	void users(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
+		indexUsers.showView(event);
 	}
 
 	@FXML
-	void clickedCancel(MouseEvent event) {
-
+	void clickedCancel(MouseEvent event) throws Exception {
+		Index indexProducts = new Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
@@ -127,7 +135,6 @@ public class Save {
 
 	@FXML
 	void clickedRegister(MouseEvent event) throws Exception {
-		System.out.println("VALUE COMBOX:"+provider_id.getValue());
 		if (name.getText().equals(null) || price.getText().equals(null) || description.getText().equals(null)
 				|| quantity.getText().equals(null) || provider_id.getValue().equals(null)) {
 			warningAlert();
@@ -139,10 +146,15 @@ public class Save {
 			} else {
 				image = null;
 			}
-
+			String category = category_id.getValue();
+			String provider = provider_id.getValue();
+			if (category == null) {
+				category = "2";
+			}
+			category = category.substring(0, 1);
+			provider = provider.substring(0, 1);
 			if (mySQL.saveProduct(name.getText(), description.getText(), image, Float.parseFloat(price.getText()),
-					Integer.parseInt(quantity.getText()), Integer.parseInt(provider_id.getValue().substring(0, 1)),
-					Integer.parseInt(category_id.getValue().substring(0, 1)))) {
+					Integer.parseInt(quantity.getText()), Integer.parseInt(provider), Integer.parseInt(category))) {
 				successfullyAlert();
 				Index indexProducts = new Index();
 				indexProducts.showView(event);
