@@ -43,8 +43,9 @@ public class HomeController {
 	}
 
 	@FXML
-	void clickedCategories(MouseEvent event) {
-
+	void clickedCategories(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
@@ -60,8 +61,9 @@ public class HomeController {
 	}
 
 	@FXML
-	void clickedProducts(MouseEvent event) {
-
+	void clickedProducts(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
@@ -78,11 +80,6 @@ public class HomeController {
 	void clickedUsers(MouseEvent event) throws Exception {
 		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
 		indexUsers.showView(event);
-		
-	}
-
-	@FXML
-	void clickedSave(MouseEvent event) {
 
 	}
 
@@ -101,6 +98,11 @@ public class HomeController {
 			input.setDisable(true);
 		}
 		date.setText(dateString.toString());
+	}
+
+	@FXML
+	void clickedSave(MouseEvent event) {
+
 	}
 
 	public void showView(Event event) throws Exception {
