@@ -262,12 +262,15 @@ public class MySQLConnection {
 	}
 
 	public boolean saveCategory(String name, int father_id, String image) throws SQLException {
+
+		System.out.println(father_id);
 		connection = getConnection();
 		Timestamp created = generateTimestamp();
 		Statement statement = (Statement) connection.createStatement();
 		String queryInsert = "INSERT INTO papelerialegado.categories(name, father_id, image, created_at) VALUES" + " ('"
 				+ name + "','" + father_id + "','" + image + "','" + created + "')";
 		statement.executeUpdate(queryInsert);
+
 		return true;
 	}
 

@@ -99,7 +99,8 @@ public class Edit {
 
 	@FXML
 	void products(MouseEvent event) throws Exception {
-
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
@@ -227,13 +228,6 @@ public class Edit {
 			alert.showAndWait();
 			return true;
 		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setHeaderText(null);
-			alert.setContentText("Ocurrió un error");
-			alert.setGraphic(new ImageView(this.getClass().getResource("/assets/images/icons/error.png").toString()));
-			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-			stage.getIcons().add(new Image(this.getClass().getResource("/assets/images/icons/error.png").toString()));
-			alert.showAndWait();
 			return false;
 		}
 	}

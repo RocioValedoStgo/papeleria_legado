@@ -51,18 +51,21 @@ public class Index implements Initializable {
 	}
 
 	@FXML
-	void categories(MouseEvent event) {
-
+	void categories(MouseEvent event) throws Exception {
+		Index indexCategories = new Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
-	void home(MouseEvent event) {
-
+	void home(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.HomeController home = new papeleria_legado.Controllers.HomeController();
+		home.showView(event);
 	}
 
 	@FXML
-	void logout(MouseEvent event) {
-
+	void logout(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.LoginController logout = new papeleria_legado.Controllers.LoginController();
+		logout.showView(event);
 	}
 
 	@FXML
@@ -71,13 +74,15 @@ public class Index implements Initializable {
 	}
 
 	@FXML
-	void products(MouseEvent event) {
-
+	void products(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
-	void providers(MouseEvent event) {
-
+	void providers(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML
@@ -86,8 +91,9 @@ public class Index implements Initializable {
 	}
 
 	@FXML
-	void users(MouseEvent event) {
-
+	void users(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
+		indexUsers.showView(event);
 	}
 
 	@FXML

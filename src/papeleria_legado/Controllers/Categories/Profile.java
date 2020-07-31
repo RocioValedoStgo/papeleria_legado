@@ -1,8 +1,6 @@
 package papeleria_legado.Controllers.Categories;
 
 import papeleria_legado.MySQLConnection;
-import papeleria_legado.Controllers.HomeController;
-import papeleria_legado.Controllers.Categories.*;
 import papeleria_legado.Models.Category;
 
 import java.io.File;
@@ -72,7 +70,8 @@ public class Profile {
 
 	@FXML
 	void products(MouseEvent event) throws Exception {
-
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
@@ -93,6 +92,12 @@ public class Profile {
 	}
 
 	@FXML
+	void clickedCancel(MouseEvent event) throws Exception {
+		Index indexCategory = new Index();
+		indexCategory.showView(event);
+	}
+
+	@FXML
 	public void initialize() {
 		MySQLConnection mySQL = new MySQLConnection();
 		try {
@@ -110,12 +115,6 @@ public class Profile {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	@FXML
-	void clickedCancel(MouseEvent event) throws Exception {
-		Index indexCategory = new Index();
-		indexCategory.showView(event);
 	}
 
 	@FXML
