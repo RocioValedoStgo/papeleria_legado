@@ -180,7 +180,7 @@
                </font>
             </Label>
             <Line endX="670.0" layoutX="126.0" layoutY="127.0" startX="-100.0" stroke="#777777" strokeWidth="0.5" />
-            <Label layoutX="26.0" layoutY="138.0" text="Inicio &gt; Ticket &gt; Detalles de compra">
+            <Label layoutX="26.0" layoutY="138.0" text="Inicio &gt; Ticket &gt; Detalles de compra &gt; ">
                <font>
                   <Font name="Trebuchet MS" size="12.0" />
                </font>
@@ -252,6 +252,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Label fx:id="noTicket" layoutX="232.0" layoutY="138.0" text="No.">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

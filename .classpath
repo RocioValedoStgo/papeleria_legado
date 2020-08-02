@@ -13,5 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Rocío/Documents/01. UPChiapas IDS/8vo Cuatri/Mantenimiento de Software/Conectores_mto/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Rocío/Documents/01. UPChiapas IDS/8vo Cuatri/Mantenimiento de Software/Conectores_mto/controlsfx-8.40.14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rocío/Documents/01. UPChiapas IDS/8vo Cuatri/Mantenimiento de Software/Conectores_mto/itextpdf-5.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

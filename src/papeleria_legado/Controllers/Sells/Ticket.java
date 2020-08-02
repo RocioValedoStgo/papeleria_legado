@@ -46,6 +46,9 @@ public class Ticket {
 	@FXML
 	private Label iva;
 
+	@FXML
+	private Label noTicket;
+
 	private static int pkSell;
 	private static float auxSubtotal = 0;
 
@@ -110,6 +113,7 @@ public class Ticket {
 			subtotal.setCellValueFactory(new PropertyValueFactory<>("subtotal"));
 			tableTicket.setItems(mySQL.indexSell(getPkSell()));
 			ticketNumber.setText("Compra No. " + getPkSell());
+			noTicket.setText("No. " + getPkSell());
 			for (Sell_Detail item : tableTicket.getItems()) {
 				auxSubtotal = auxSubtotal + subtotal.getCellObservableValue(item).getValue();
 			}
