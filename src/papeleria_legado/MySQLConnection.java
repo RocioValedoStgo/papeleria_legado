@@ -7,9 +7,12 @@ import java.util.Date;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import papeleria_legado.Models.Cash_Register;
 import papeleria_legado.Models.Category;
 import papeleria_legado.Models.Product;
 import papeleria_legado.Models.Provider;
+import papeleria_legado.Models.Sell;
+import papeleria_legado.Models.Sell_Detail;
 import papeleria_legado.Models.User;
 
 public class MySQLConnection {
@@ -139,6 +142,16 @@ public class MySQLConnection {
 		String queryDelete = "DELETE FROM papelerialegado.users WHERE papelerialegado.users.id = " + id;
 		statement = (Statement) connection.createStatement();
 		return statement.executeUpdate(queryDelete);
+	}
+
+	public int editPwdUser(int pk, String newPwd) throws SQLException {
+		connection = getConnection();
+		String pwdEncrypted = passwordEncrypted(newPwd);
+		String query = "UPDATE papelerialegado.users SET password = ? WHERE id = ?";
+		PreparedStatement ps = (PreparedStatement) connection.prepareStatement(query);
+		ps.setString(1, pwdEncrypted);
+		ps.setInt(2, pk);
+		return ps.executeUpdate();
 	}
 
 	private String passwordEncrypted(String password) {
@@ -432,5 +445,198 @@ public class MySQLConnection {
 	}
 
 	// SELLS
+
+	public boolean saveDetails(int product_id, int quantity, float subtotal, int sell_id) throws SQLException {
+		connection = getConnection();
+		Timestamp created = generateTimestamp();
+		Statement statement = (Statement) connection.createStatement();
+		String query = "INSERT INTO papelerialegado.sell_details(product_id, quantity, subtotal, sell_id, created_at) VALUES"
+				+ " ('" + product_id + "','" + quantity + "','" + subtotal + "','" + sell_id + "','" + created + "')";
+		statement.executeUpdate(query);
+		return true;
+	}
+
+	public int saveSell(float total, float money, float change, int cash_id) throws SQLException {
+		connection = getConnection();
+		float IVA = Float.parseFloat("16");
+		Timestamp created = generateTimestamp();
+		ResultSet rs;
+		int result = 0;
+		Statement statement = (Statement) connection.createStatement();
+		String query = "INSERT INTO papelerialegado.sells(IVA, total, incoming, output, cash_register_id, created_at) VALUES ('"
+				+ IVA + "','" + total + "','" + money + "','" + change + "','" + cash_id + "','" + created + "')";
+		result = statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+		if (result == 0)
+			throw new SQLException("No se pudo guardar");
+		rs = statement.getGeneratedKeys();
+		if (rs.next())
+			result = rs.getInt(1);
+		return result;
+	}
+
+	public boolean saveSellZero(float total, float money, float change, int cash_id) throws SQLException {
+		connection = getConnection();
+		float IVA = Float.parseFloat("16");
+		Timestamp created = generateTimestamp();
+		Statement statement = (Statement) connection.createStatement();
+		String query = "INSERT INTO papelerialegado.sells(IVA, total, incoming, output, cash_register_id, created_at) VALUES ('"
+				+ IVA + "','" + total + "','" + money + "','" + change + "','" + cash_id + "','" + created + "')";
+		statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+		return true;
+	}
+
+	public ObservableList<Sell_Detail> indexSell(int pkSell) throws SQLException {
+		connection = getConnection();
+		ObservableList<Sell_Detail> listDetails = FXCollections.observableArrayList();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT products.name, products.price, details.quantity, details.subtotal, sells.total FROM sell_details as details\r\n"
+				+ "JOIN sells\r\n" + "JOIN products\r\n" + "WHERE details.sell_id = sells.id and sells.id = " + pkSell
+				+ " and details.product_id = products.id ORDER BY details.id DESC";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			listDetails.add(new Sell_Detail(rs.getString("name"), rs.getFloat("price"), rs.getInt("quantity"),
+					rs.getFloat("subtotal"), rs.getFloat("total")));
+		}
+		return listDetails;
+	}
+
+	public ObservableList<Sell> indexSells() throws SQLException {
+		connection = getConnection();
+		ObservableList<Sell> listSells = FXCollections.observableArrayList();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT id, total, cash_register_id FROM sells ORDER BY created_at DESC";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next())
+			listSells.add(new Sell(rs.getInt("id"), rs.getFloat("total"), rs.getInt("cash_register_id")));
+		return listSells;
+	}
+
+	public ObservableList<Sell> getSells(int pk) throws SQLException {
+		connection = getConnection();
+		ObservableList<Sell> listSells = FXCollections.observableArrayList();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT sells.id, sells.total, sells.created_at FROM cash_register\r\n" + "JOIN sells\r\n"
+				+ "WHERE sells.cash_register_id = cash_register.id and cash_register.id = " + pk;
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next())
+			listSells.add(new Sell(rs.getInt("id"), rs.getFloat("total"), rs.getInt("created_at")));
+		return listSells;
+	}
+
+	// CASHS
+
+	public ObservableList<Cash_Register> indexCashs() throws SQLException {
+		connection = getConnection();
+		ObservableList<Cash_Register> listCashs = FXCollections.observableArrayList();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT id, total, status, close, created_at FROM cash_register WHERE status = 0 ORDER BY id DESC";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next())
+			listCashs.add(new Cash_Register(rs.getInt("id"), rs.getFloat("total"), rs.getBoolean("status"),
+					rs.getTimestamp("close"), rs.getTimestamp("created_at")));
+		return listCashs;
+	}
+
+	public int saveCashRegister() throws SQLException {
+		connection = getConnection();
+		Timestamp created = generateTimestamp();
+		ResultSet rs;
+		int result = 0;
+		Statement statement;
+		String query = "SELECT id FROM cash_register WHERE `status` = 0 ORDER BY created_at DESC limit 1";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		if (rs.next())
+			result = rs.getInt(1);
+		else {
+			query = "INSERT INTO cash_register(total, status, created_at) VALUES ('" + 0 + "','" + 0 + "','" + created
+					+ "')";
+			result = statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+			if (result == 0)
+				throw new SQLException("No se pudo guardar");
+			rs = statement.getGeneratedKeys();
+			if (rs.next())
+				result = rs.getInt(1);
+		}
+		return result;
+	}
+
+	public int updateTotalCash(int id, float total) throws SQLException {
+		connection = getConnection();
+		String query = "UPDATE cash_register SET total=? WHERE id = ?";
+		PreparedStatement ps = (PreparedStatement) connection.prepareStatement(query);
+		ps.setFloat(1, total);
+		ps.setInt(2, id);
+		return ps.executeUpdate();
+	}
+
+	public Cash_Register getCashRegister() throws SQLException {
+		connection = getConnection();
+		Cash_Register cash = null;
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT id, total, status, created_at FROM cash_register WHERE `status` = 1 ORDER BY created_at DESC LIMIT 1";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next())
+			cash = new Cash_Register(rs.getInt("id"), rs.getFloat("total"));
+		return cash;
+	}
+
+	public int getCashActive() throws SQLException {
+		connection = getConnection();
+		int result = 0;
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT id, created_at FROM cash_register WHERE status = 1 ORDER BY created_at DESC LIMIT 1";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next())
+			result = rs.getInt("id");
+		return result;
+	}
+
+	public int closeCashRegister(int pkCash) throws SQLException {
+		connection = getConnection();
+		Timestamp now = generateTimestamp();
+		String query = "UPDATE cash_register SET status=?, close=? WHERE id=?";
+		PreparedStatement ps = (PreparedStatement) connection.prepareStatement(query);
+		ps.setInt(1, 0);
+		ps.setTimestamp(2, now);
+		ps.setInt(3, pkCash);
+		return ps.executeUpdate();
+	}
+
+	public boolean newCashRegister() throws SQLException {
+		connection = getConnection();
+		Timestamp created = generateTimestamp();
+		Statement statement = (Statement) connection.createStatement();
+		String query = "INSERT INTO cash_register(total, status, created_at) VALUES" + " ('" + 0.0 + "','" + 1 + "','"
+				+ created + "')";
+		statement.executeUpdate(query);
+		return true;
+	}
+
+	public boolean checkSellZero(String now) throws SQLException {
+		connection = getConnection();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT created_at FROM sells WHERE created_at LIKE '" + now.substring(0, 10)
+				+ "%' ORDER BY created_at DESC LIMIT 1";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		if (rs.next())
+			return true;
+		else
+			return false;
+	}
 
 }

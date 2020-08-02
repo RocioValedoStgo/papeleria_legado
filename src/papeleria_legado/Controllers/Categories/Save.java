@@ -167,10 +167,8 @@ public class Save {
 			if (father == null) {
 				father = "0";
 			} else {
-				father = father_id.getValue();
+				father = father.substring(0, 1);
 			}
-			father = father.substring(0, 1);
-			System.out.println(father_id.getValue());
 			if (mySQL.saveCategory(name.getText(), Integer.parseInt(father), image)) {
 				successfullyAlert();
 				Index indexCategories = new Index();

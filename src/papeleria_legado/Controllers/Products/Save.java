@@ -149,7 +149,7 @@ public class Save {
 			String category = category_id.getValue();
 			String provider = provider_id.getValue();
 			if (category == null) {
-				category = "2";
+				category = "1";
 			}
 			category = category.substring(0, 1);
 			provider = provider.substring(0, 1);

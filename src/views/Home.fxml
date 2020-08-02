@@ -195,7 +195,10 @@
                   <Font name="Trebuchet MS Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="input" layoutX="464.0" layoutY="381.0" prefHeight="33.0" prefWidth="260.0" />
+            <TextField fx:id="input" layoutX="464.0" layoutY="381.0" prefHeight="33.0" prefWidth="260.0">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font></TextField>
             <Label layoutX="281.0" layoutY="37.0" text="Bienvenido">
                <font>
                   <Font name="Trebuchet MS Bold" size="55.0" />
@@ -218,12 +221,12 @@
                </image>
             </ImageView>
             <Circle fill="WHITE" layoutX="212.0" layoutY="323.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="385.0" prefHeight="26.0" prefWidth="340.0" text="Usuario" textAlignment="CENTER">
+            <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="391.0" prefHeight="26.0" prefWidth="340.0" text="Usuario" textAlignment="CENTER">
                <font>
                   <Font name="Trebuchet MS Bold" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="rol" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="416.0" prefHeight="26.0" prefWidth="340.0" text="Rol" textAlignment="CENTER">
+            <Label fx:id="rol" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="420.0" prefHeight="26.0" prefWidth="340.0" text="Rol" textAlignment="CENTER">
                <font>
                   <Font name="Trebuchet MS Bold" size="18.0" />
                </font>
@@ -235,7 +238,7 @@
             </Label>
             <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="152.0" layoutY="264.0">
                <image>
-                  <Image url="@../assets/images/user.png" />
+                  <Image url="@../assets/images/user_profile.png" />
                </image>
             </ImageView>
          </children>
