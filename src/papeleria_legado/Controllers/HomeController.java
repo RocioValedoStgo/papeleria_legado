@@ -1,6 +1,7 @@
 package papeleria_legado.Controllers;
 
 import papeleria_legado.MySQLConnection;
+import papeleria_legado.Models.Cash_Register;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -8,14 +9,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.util.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 public class HomeController {
@@ -56,8 +61,9 @@ public class HomeController {
 	}
 
 	@FXML
-	void clickedMakeSale(MouseEvent event) {
-
+	void clickedMakeSale(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Save makeSale = new papeleria_legado.Controllers.Sells.Save();
+		makeSale.showView(event);
 	}
 
 	@FXML
@@ -73,7 +79,9 @@ public class HomeController {
 	}
 
 	@FXML
-	void clickedSells(MouseEvent event) {
+	void clickedSells(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+		indexSells.showView(event);
 	}
 
 	@FXML
@@ -85,6 +93,28 @@ public class HomeController {
 
 	@FXML
 	public void initialize() {
+		MySQLConnection mySQL = new MySQLConnection();
+		try {
+			if (mySQL.getCashActive() == 0) {
+				if (mySQL.newCashRegister()) {
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setHeaderText(null);
+					alert.setContentText(
+							"No se detecto una caja activa, se ha creado una\nFavor de ingresar la venta 0");
+					alert.setGraphic(
+							new ImageView(this.getClass().getResource("/assets/images/icons/question.png").toString()));
+					Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+					stage.getIcons().add(
+							new Image(this.getClass().getResource("/assets/images/icons/question.png").toString()));
+					alert.showAndWait();
+					btnSave.setDisable(false);
+					input.setDisable(false);
+				}
+			}
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+
 		SimpleDateFormat format = new SimpleDateFormat("dd-MMMMM-yyyy");
 		String dateString = format.format(new Date());
 		username.setText(MySQLConnection.UserUsername);
@@ -101,7 +131,53 @@ public class HomeController {
 	}
 
 	@FXML
-	void clickedSave(MouseEvent event) {
+	void clickedSave(MouseEvent event) throws SQLException {
+		SimpleDateFormat auxFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		MySQLConnection mySQL = new MySQLConnection();
+
+		try {
+			if (!mySQL.checkSellZero(auxFormat.format(new Date()))) {
+				int cash_id = mySQL.getCashActive();
+				if (mySQL.saveSellZero(Float.parseFloat(input.getText()), 0, 0, cash_id)) {
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setHeaderText(null);
+					alert.setContentText("Venta 0 registrada");
+					alert.setGraphic(
+							new ImageView(this.getClass().getResource("/assets/images/icons/ok.png").toString()));
+					Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+					stage.getIcons()
+							.add(new Image(this.getClass().getResource("/assets/images/icons/ok.png").toString()));
+					alert.showAndWait();
+					btnSave.setDisable(true);
+					input.setDisable(true);
+					Cash_Register cash = mySQL.getCashRegister();
+					float auxSellTotal = cash.getTotal() + Float.parseFloat(input.getText());
+					if (mySQL.updateTotalCash(cash.getId(), auxSellTotal) != 1) {
+						Alert alertA = new Alert(AlertType.ERROR);
+						alertA.setHeaderText(null);
+						alertA.setContentText("Ocurrio un error al actualizar el total de venta");
+						alertA.setGraphic(new ImageView(
+								this.getClass().getResource("/assets/images/icons/error.png").toString()));
+						Stage stageA = (Stage) alertA.getDialogPane().getScene().getWindow();
+						stageA.getIcons().add(
+								new Image(this.getClass().getResource("/assets/images/icons/error.png").toString()));
+						alertA.showAndWait();
+					}
+				} else {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setHeaderText(null);
+					alert.setContentText("Ocurrio un error al guardar la venta 0");
+					alert.setGraphic(
+							new ImageView(this.getClass().getResource("/assets/images/icons/error.png").toString()));
+					Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+					stage.getIcons()
+							.add(new Image(this.getClass().getResource("/assets/images/icons/error.png").toString()));
+					alert.showAndWait();
+				}
+			}
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
 
 	}
 

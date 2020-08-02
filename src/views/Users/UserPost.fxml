@@ -224,18 +224,12 @@
                   <Font name="Trebuchet MS" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="538.0" layoutY="359.0" text="Turno">
+            <Label layoutX="538.0" layoutY="448.0" text="Turno">
                <font>
                   <Font name="Trebuchet MS" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="538.0" layoutY="448.0" text="Rol">
-               <font>
-                  <Font name="Trebuchet MS" size="14.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="turn" layoutX="538.0" layoutY="381.0" prefHeight="33.0" prefWidth="270.0" promptText="Seleccione un turno" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-border-radius: 4;" />
-            <ComboBox fx:id="rol" layoutX="538.0" layoutY="470.0" prefHeight="33.0" prefWidth="270.0" promptText="Seleccione un rol" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-border-radius: 4;" />
+            <ComboBox fx:id="turn" layoutX="538.0" layoutY="470.0" prefHeight="33.0" prefWidth="270.0" promptText="Seleccione un turno" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-border-radius: 4;" />
             <Button layoutX="32.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: Black; -fx-border-radius: 4;" text="Registrar" textFill="WHITE">
                <font>
                   <Font name="Trebuchet MS Bold" size="16.0" />
@@ -257,7 +251,7 @@
                   <Font name="Trebuchet MS" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="email" layoutX="238.0" layoutY="381.0" prefHeight="33.0" prefWidth="270.0" style="-fx-border-radius: 4;">
+            <TextField fx:id="email" layoutX="238.0" layoutY="381.0" prefHeight="33.0" prefWidth="570.0" style="-fx-border-radius: 4;">
                <font>
                   <Font name="Trebuchet MS" size="12.0" />
                </font>

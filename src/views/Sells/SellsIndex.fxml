@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="papeleria_legado.Controllers.Sells.Index">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="180.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +31,7 @@
             <Line endX="50.0" layoutX="115.0" layoutY="389.0" startX="-100.0" stroke="#e1e1e1" />
             <Line endX="50.0" layoutX="115.0" layoutY="430.0" startX="-100.0" stroke="#e1e1e1" />
             <Line endX="50.0" layoutX="115.0" layoutY="471.0" startX="-100.0" stroke="#e1e1e1" />
-            <Button fx:id="home" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#home" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Inicio">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#home" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Inicio">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -43,7 +43,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="users" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#users" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Usuarios">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#users" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Usuarios">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -55,7 +55,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="providers" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#providers" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Proveedores">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#providers" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Proveedores">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -67,7 +67,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="categories" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#categories" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Categorías">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#categories" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Categorías">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -79,7 +79,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="products" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#products" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Productos">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#products" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Productos">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -91,7 +91,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="sells" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#sells" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Ventas">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#sells" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Ventas">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -103,7 +103,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="makeSale" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#makeSales" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: Transparent;" text="Realizar venta">
+            <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#makeSales" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: Transparent;" text="Realizar venta">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -115,7 +115,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="cash_register" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#cashRegister" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
+            <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#cashRegister" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -127,7 +127,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="logout" alignment="BASELINE_LEFT" layoutX="16.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cerrar sesión">
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cerrar sesión">
                <font>
                   <Font name="Trebuchet MS" size="16.0" />
                </font>
@@ -157,14 +157,12 @@
                   <Font name="Trebuchet MS" size="12.0" />
                </font>
             </Label>
-            <TableView layoutX="26.0" layoutY="213.0" prefHeight="291.0" prefWidth="770.0" style="-fx-background-color: white;">
+            <TableView fx:id="tableSells" layoutX="26.0" layoutY="213.0" prefHeight="320.0" prefWidth="770.0" style="-fx-background-color: white;">
               <columns>
-                <TableColumn fx:id="id" prefWidth="46.0" text="ID" />
-                <TableColumn fx:id="name" prefWidth="238.0" text="Producto" />
-                  <TableColumn fx:id="price" prefWidth="115.0" text="Precio" />
-                  <TableColumn fx:id="quantity" prefWidth="109.0" text="Cantidad" />
-                  <TableColumn fx:id="subtotal" prefWidth="134.0" text="Subtotal" />
-                  <TableColumn fx:id="total" prefWidth="127.0" text="Total" />
+                <TableColumn fx:id="id" prefWidth="54.0" text="ID" />
+                  <TableColumn fx:id="cash_id" prefWidth="290.0" text="No. de caja" />
+                  <TableColumn fx:id="totalSell" prefWidth="296.0" text="Total de compra" />
+                  <TableColumn fx:id="options" prefWidth="135.0" text="Opciones" />
               </columns>
             </TableView>
             <Label fx:id="date" layoutX="671.0" layoutY="181.0" prefHeight="20.0" prefWidth="126.0" text=" dd/mm/aaaa">
@@ -172,17 +170,7 @@
                   <Font name="Trebuchet MS Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="611.0" layoutY="181.0" prefHeight="20.0" prefWidth="59.0" text="Fecha:">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="582.0" layoutY="513.0" prefHeight="20.0" prefWidth="59.0" text="Total">
-               <font>
-                  <Font name="Trebuchet MS Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="totalSells" layoutX="671.0" layoutY="513.0" prefHeight="20.0" prefWidth="119.0" text="\$">
+            <Label layoutX="611.0" layoutY="181.0" prefHeight="20.0" prefWidth="59.0" text="Hoy:">
                <font>
                   <Font name="Trebuchet MS Bold" size="16.0" />
                </font>

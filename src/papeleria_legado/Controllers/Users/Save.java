@@ -139,7 +139,7 @@ public class Save {
 		turns.addAll("Matutino", "Vespertino");
 		turn.setItems(turns);
 		rols.addAll("Dueño", "Cajero");
-		rol.setItems(rols);
+		// rol.setItems(rols);
 	}
 
 	@FXML
