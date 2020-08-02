@@ -43,8 +43,9 @@ public class HomeController {
 	private Button btnSave;
 
 	@FXML
-	void clickedCashRegister(MouseEvent event) {
-
+	void clickedCashRegister(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
+		indexCashs.showView(event);
 	}
 
 	@FXML
