@@ -70,7 +70,7 @@
 		> Run > Run configurations > Java App > Main (1) > arguments > VM arguments
 	- Set the value `--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED`.
 
-	- Step 4
+- Step 4
 	- Add JAR's
 		- [JAR's](https://drive.google.com/drive/folders/1Gk_ZLiixr_vatw2aHaJLkwnyckHinNIu?usp=sharing)
 
