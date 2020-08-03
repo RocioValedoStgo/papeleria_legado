@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="papeleria_legado.Controllers.Categories.Profile">
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="180.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
+         <children>
+            <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#cashRegister" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cortes de caja">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/register-cash.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="115.0" fitWidth="127.0" layoutX="27.0" layoutY="6.0">
+               <image>
+                  <Image url="@../../assets/images/legado_papeleria.jpeg" />
+               </image>
+            </ImageView>
+            <Line endX="50.0" layoutX="115.0" layoutY="148.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="187.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="228.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="268.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="308.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="349.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="389.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="430.0" startX="-100.0" stroke="#e1e1e1" />
+            <Line endX="50.0" layoutX="115.0" layoutY="471.0" startX="-100.0" stroke="#e1e1e1" />
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="150.0" mnemonicParsing="false" onMouseClicked="#home" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Inicio">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#users" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Usuarios">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/users.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#providers" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Proveedores">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/providers.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#categories" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Categorías">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/category.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#products" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Productos">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/products.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#sells" prefHeight="34.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Ventas">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/sells.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="15.0" layoutY="352.0" mnemonicParsing="false" onMouseClicked="#makeSales" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: Transparent;" text="Realizar venta">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/cart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="BASELINE_LEFT" layoutX="16.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="34.0" prefWidth="157.0" style="-fx-background-color: Transparent;" text="Cerrar sesión">
+               <font>
+                  <Font name="Trebuchet MS" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0">
+                     <image>
+                        <Image url="@../../assets/images/icons/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="822.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5ce1e6" height="169.0" layoutY="-5.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 18; -fx-arc-height: 18;" width="822.0" />
+            <Label fx:id="titleNameCategory" alignment="CENTER" layoutX="-1.0" layoutY="37.0" prefHeight="64.0" prefWidth="823.0" text="Categoría">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="55.0" />
+               </font>
+            </Label>
+            <Line endX="670.0" layoutX="126.0" layoutY="127.0" startX="-100.0" stroke="#777777" strokeWidth="0.5" />
+            <Label layoutX="26.0" layoutY="138.0" text="Inicio &gt; Categorías &gt; Ver categoría &gt; ">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameCategory" layoutX="226.0" layoutY="138.0" text="Categoría">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </Label>
+            <Rectangle fx:id="image" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="299.0" layoutX="26.0" layoutY="178.0" stroke="BLACK" strokeType="INSIDE" width="190.0" />
+            <Label fx:id="name" layoutX="238.0" layoutY="178.0" text="Nombre de la categoría">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="238.0" layoutY="252.0" text="Subcategoría:">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="22.0" />
+               </font>
+            </Label>
+            <Button layoutX="337.0" layoutY="471.0" mnemonicParsing="false" onMouseClicked="#clickedEdit" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: Black; -fx-border-radius: 4;" text="Editar" textFill="WHITE">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="528.0" layoutY="471.0" mnemonicParsing="false" onMouseClicked="#clickedCancel" prefHeight="33.0" prefWidth="178.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 4;" text="Cancelar">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="father_id" layoutX="238.0" layoutY="286.0" text="Nombre de la categoría">
+               <font>
+                  <Font name="Trebuchet MS Bold" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageView" fitHeight="297.0" fitWidth="188.0" layoutX="27.0" layoutY="179.0">
+               <image>
+                  <Image url="@../../assets/images/category.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="45.0" prefWidth="1000.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Line endX="800.0" layoutX="150.0" layoutY="14.0" startX="-100.0" stroke="#777777" strokeWidth="0.5" />
+            <Text fill="#777777" layoutX="440.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright ©  2020 - Papeleria Legado">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

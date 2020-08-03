@@ -1,13 +1,13 @@
 package papeleria_legado;
 
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class Main extends Application{
+public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
@@ -15,16 +15,11 @@ public class Main extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Label label =  new Label("Connection to MySQL: "+MySQLConnection.getConnection());
-		Group root = new Group();
-		root.getChildren().addAll(label);
-		label.setLayoutX(120);
-		label.setLayoutY(200);
-        Scene scene = new Scene(root, 640, 400);
-        primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image("/assets/images/legado_papeleria.jpeg"));
-        primaryStage.setTitle("Papeleria Legado");
-        primaryStage.show();
+		Parent root = FXMLLoader.load(getClass().getResource("../views/Login.fxml"));
+		primaryStage.getIcons().add(new Image("/assets/images/legado_papeleria.jpeg"));
+		primaryStage.setTitle("Papeleria Legado");
+		Scene scene = new Scene(root, 1000, 600);
+		primaryStage.setScene(scene);
+		primaryStage.show();
 	}
-
 }
