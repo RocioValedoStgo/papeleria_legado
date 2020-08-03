@@ -1,6 +1,8 @@
 package papeleria_legado.Controllers.Cashs;
 
 import papeleria_legado.MySQLConnection;
+import papeleria_legado.Controllers.HomeController;
+import papeleria_legado.Controllers.LoginController;
 import papeleria_legado.Models.Cash_Register;
 
 import java.net.URL;
@@ -50,48 +52,51 @@ public class Index implements Initializable {
 	private Button btnCortCash;
 
 	@FXML
-	void cashRegister(MouseEvent event) {
-
+	void categories(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
-	void categories(MouseEvent event) {
-
+	void home(MouseEvent event) throws Exception {
+		HomeController home = new HomeController();
+		home.showView(event);
 	}
 
 	@FXML
-	void home(MouseEvent event) {
-
+	void logout(MouseEvent event) throws Exception {
+		LoginController login = new LoginController();
+		login.showView(event);
 	}
 
 	@FXML
-	void logout(MouseEvent event) {
-
+	void makeSales(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Save makeSale = new papeleria_legado.Controllers.Sells.Save();
+		makeSale.showView(event);
 	}
 
 	@FXML
-	void makeSales(MouseEvent event) {
-
+	void products(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
-	void products(MouseEvent event) {
-
+	void providers(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML
-	void providers(MouseEvent event) {
-
+	void sells(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+		indexSells.showView(event);
 	}
 
 	@FXML
-	void sells(MouseEvent event) {
-
-	}
-
-	@FXML
-	void users(MouseEvent event) {
-
+	void users(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
+		indexUsers.showView(event);
 	}
 
 	@Override

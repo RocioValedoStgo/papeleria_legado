@@ -44,14 +44,41 @@ public class HomeController {
 
 	@FXML
 	void clickedCashRegister(MouseEvent event) throws Exception {
-		papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
-		indexCashs.showView(event);
+		if (MySQLConnection.UserRol == 3) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("No cuentas con los permisos necesarios");
+			alert.setGraphic(
+					new ImageView(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+			Stage stageC = (Stage) alert.getDialogPane().getScene().getWindow();
+			stageC.getIcons()
+					.add(new Image(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+
+			alert.showAndWait();
+		} else {
+			papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
+			indexCashs.showView(event);
+		}
 	}
 
 	@FXML
 	void clickedCategories(MouseEvent event) throws Exception {
-		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
-		indexCategories.showView(event);
+		if (MySQLConnection.UserRol == 3) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("No cuentas con los permisos necesarios");
+			alert.setGraphic(
+					new ImageView(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+			Stage stageC = (Stage) alert.getDialogPane().getScene().getWindow();
+			stageC.getIcons()
+					.add(new Image(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+
+			alert.showAndWait();
+		} else {
+			papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+			indexCategories.showView(event);
+		}
+
 	}
 
 	@FXML
@@ -69,27 +96,78 @@ public class HomeController {
 
 	@FXML
 	void clickedProducts(MouseEvent event) throws Exception {
-		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
-		indexProducts.showView(event);
+		if (MySQLConnection.UserRol == 3) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("No cuentas con los permisos necesarios");
+			alert.setGraphic(
+					new ImageView(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+			Stage stageC = (Stage) alert.getDialogPane().getScene().getWindow();
+			stageC.getIcons()
+					.add(new Image(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+
+			alert.showAndWait();
+		} else {
+			papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+			indexProducts.showView(event);
+		}
 	}
 
 	@FXML
 	void clickedProviders(MouseEvent event) throws Exception {
-		papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
-		indexProviders.showView(event);
+		if (MySQLConnection.UserRol == 3) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("No cuentas con los permisos necesarios");
+			alert.setGraphic(
+					new ImageView(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+			Stage stageC = (Stage) alert.getDialogPane().getScene().getWindow();
+			stageC.getIcons()
+					.add(new Image(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+
+			alert.showAndWait();
+		} else {
+			papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
+			indexProviders.showView(event);
+		}
 	}
 
 	@FXML
 	void clickedSells(MouseEvent event) throws Exception {
-		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
-		indexSells.showView(event);
+		if (MySQLConnection.UserRol == 3) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("No cuentas con los permisos necesarios");
+			alert.setGraphic(
+					new ImageView(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+			Stage stageC = (Stage) alert.getDialogPane().getScene().getWindow();
+			stageC.getIcons()
+					.add(new Image(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+
+			alert.showAndWait();
+		} else {
+			papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+			indexSells.showView(event);
+		}
 	}
 
 	@FXML
 	void clickedUsers(MouseEvent event) throws Exception {
-		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
-		indexUsers.showView(event);
+		if (MySQLConnection.UserRol == 3) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText(null);
+			alert.setContentText("No cuentas con los permisos necesarios");
+			alert.setGraphic(
+					new ImageView(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
+			Stage stageC = (Stage) alert.getDialogPane().getScene().getWindow();
+			stageC.getIcons()
+					.add(new Image(this.getClass().getResource("/assets/images/icons/noAccess.png").toString()));
 
+			alert.showAndWait();
+		} else {
+			papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
+			indexUsers.showView(event);
+		}
 	}
 
 	@FXML

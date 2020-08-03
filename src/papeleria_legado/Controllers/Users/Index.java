@@ -85,13 +85,15 @@ public class Index implements Initializable {
 	private TableColumn<User, String> options;
 
 	@FXML
-	void cashRegister(MouseEvent event) {
-
+	void cashRegister(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
+		indexCashs.showView(event);
 	}
 
 	@FXML
-	void categories(MouseEvent event) {
-
+	void categories(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
@@ -107,28 +109,33 @@ public class Index implements Initializable {
 	}
 
 	@FXML
-	void makeSales(MouseEvent event) {
-
+	void makeSales(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Save makeSale = new papeleria_legado.Controllers.Sells.Save();
+		makeSale.showView(event);
 	}
 
 	@FXML
-	void products(MouseEvent event) {
-
+	void products(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
-	void providers(MouseEvent event) {
-
+	void providers(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Providers.Index indexProviders = new papeleria_legado.Controllers.Providers.Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML
-	void sells(MouseEvent event) {
-
+	void sells(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+		indexSells.showView(event);
 	}
 
 	@FXML
-	void users(MouseEvent event) {
-
+	void users(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
+		indexUsers.showView(event);
 	}
 
 	@FXML
@@ -148,7 +155,7 @@ public class Index implements Initializable {
 		buttonShow();
 		buttonEdit();
 		buttonDelete();
-		// buttonChangePassword();
+		buttonChangePassword();
 		MySQLConnection mySQL = new MySQLConnection();
 		try {
 			tableUsers.setItems(mySQL.indexUsers());
@@ -299,12 +306,14 @@ public class Index implements Initializable {
 					Image imgShow = new Image(linkShow.toString(), 15, 15, false, true);
 					{
 						btnChangePassword.setGraphic((new ImageView(imgShow)));
-						btnChangePassword.setTooltip(new Tooltip("Editar contraseña"));
+						btnChangePassword.setTooltip(new Tooltip("Cambiar contraseña"));
 						btnChangePassword.setOnAction((ActionEvent event) -> {
 							User user = getTableView().getItems().get(getIndex());
-
+							NewPassword.setPkUser(user.getId());
+							NewPassword.setUser(user.getName());
+							NewPassword newPassword = new NewPassword();
 							try {
-
+								newPassword.showView(event);
 							} catch (Exception e) {
 								e.printStackTrace();
 							}

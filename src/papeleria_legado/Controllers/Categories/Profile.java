@@ -42,7 +42,8 @@ public class Profile {
 
 	@FXML
 	void cashRegister(MouseEvent event) throws Exception {
-
+		papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
+		indexCashs.showView(event);
 	}
 
 	@FXML
@@ -65,7 +66,8 @@ public class Profile {
 
 	@FXML
 	void makeSales(MouseEvent event) throws Exception {
-
+		papeleria_legado.Controllers.Sells.Save makeSale = new papeleria_legado.Controllers.Sells.Save();
+		makeSale.showView(event);
 	}
 
 	@FXML
@@ -82,7 +84,8 @@ public class Profile {
 
 	@FXML
 	void sells(MouseEvent event) throws Exception {
-
+		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+		indexSells.showView(event);
 	}
 
 	@FXML
