@@ -148,7 +148,6 @@ public class Profile {
 			address.setText(provider.getAddress());
 			phone.setText(provider.getPhone());
 			email.setText(provider.getEmail());
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

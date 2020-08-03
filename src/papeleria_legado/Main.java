@@ -21,7 +21,5 @@ public class Main extends Application {
 		Scene scene = new Scene(root, 1000, 600);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-
-		System.out.println("Connection to MySQL: " + MySQLConnection.getConnection());
 	}
 }
