@@ -99,19 +99,19 @@ public class MySQLConnection {
 		return listUsers;
 	}
 
-	public int editUser(int pk, String name, String last_name, String username, String phone, String turn, String email)
-			throws SQLException {
+	public int editUser(int pk, String name, String last_name, String username, String phone, String turn, int rol,
+			String email) throws SQLException {
 		connection = getConnection();
-		String queryUpdate = "UPDATE papelerialegado.users SET name=?, last_name=?, username=?, phone=?, turn=?, email=? WHERE id = ?";
+		String queryUpdate = "UPDATE papelerialegado.users SET name=?, last_name=?, username=?, phone=?, turn=?, rol=?, email=? WHERE id = ?";
 		preparedStatement = connection.prepareStatement(queryUpdate);
 		preparedStatement.setString(1, name);
 		preparedStatement.setString(2, last_name);
 		preparedStatement.setString(3, username);
 		preparedStatement.setString(4, phone);
 		preparedStatement.setString(5, turn);
-		// preparedStatement.setInt(6, rol);
-		preparedStatement.setString(6, email);
-		preparedStatement.setInt(7, pk);
+		preparedStatement.setInt(6, rol);
+		preparedStatement.setString(7, email);
+		preparedStatement.setInt(8, pk);
 		return preparedStatement.executeUpdate();
 	}
 
@@ -527,6 +527,22 @@ public class MySQLConnection {
 		while (rs.next())
 			listSells.add(new Sell(rs.getInt("id"), rs.getFloat("total"), rs.getInt("created_at")));
 		return listSells;
+	}
+
+	public ObservableList<Sell_Detail> getSellDetails(int pk) throws SQLException {
+		connection = getConnection();
+		ObservableList<Sell_Detail> listDetails = FXCollections.observableArrayList();
+		ResultSet rs;
+		Statement statement;
+		String query = "SELECT products.name, products.price, details.quantity, details.subtotal, sells.total FROM sell_details as details\r\n"
+				+ "JOIN sells\r\n" + "JOIN products\r\n" + "WHERE details.sell_id = sells.id and sells.id = " + pk
+				+ " and details.product_id = products.id ORDER BY details.id DESC";
+		statement = (Statement) connection.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next())
+			listDetails.add(new Sell_Detail(rs.getString("name"), rs.getFloat("price"), rs.getInt("quantity"),
+					rs.getFloat("subtotal"), rs.getFloat("total")));
+		return listDetails;
 	}
 
 	// CASHS

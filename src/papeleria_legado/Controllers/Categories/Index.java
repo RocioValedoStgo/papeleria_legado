@@ -2,7 +2,6 @@ package papeleria_legado.Controllers.Categories;
 
 import papeleria_legado.MySQLConnection;
 import papeleria_legado.Models.Category;
-import papeleria_legado.Controllers.Categories.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,8 +45,9 @@ public class Index implements Initializable {
 	private TableColumn<Category, String> options;
 
 	@FXML
-	void cashRegister(MouseEvent event) {
-
+	void cashRegister(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
+		indexCashs.showView(event);
 	}
 
 	@FXML
@@ -69,8 +69,9 @@ public class Index implements Initializable {
 	}
 
 	@FXML
-	void makeSales(MouseEvent event) {
-
+	void makeSales(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Save makeSale = new papeleria_legado.Controllers.Sells.Save();
+		makeSale.showView(event);
 	}
 
 	@FXML
@@ -86,8 +87,9 @@ public class Index implements Initializable {
 	}
 
 	@FXML
-	void sells(MouseEvent event) {
-
+	void sells(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+		indexSells.showView(event);
 	}
 
 	@FXML

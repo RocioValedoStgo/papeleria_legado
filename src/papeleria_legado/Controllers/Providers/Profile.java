@@ -1,6 +1,8 @@
 package papeleria_legado.Controllers.Providers;
 
 import papeleria_legado.MySQLConnection;
+import papeleria_legado.Controllers.HomeController;
+import papeleria_legado.Controllers.LoginController;
 import papeleria_legado.Controllers.Providers.Edit;
 import papeleria_legado.Models.Provider;
 
@@ -69,48 +71,57 @@ public class Profile {
 	private static int pkProvider;
 
 	@FXML
-	void cashRegister(MouseEvent event) {
-
+	void cashRegister(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
+		indexCashs.showView(event);
 	}
 
 	@FXML
-	void categories(MouseEvent event) {
-
+	void categories(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
-	void home(MouseEvent event) {
-
+	void home(MouseEvent event) throws Exception {
+		HomeController home = new HomeController();
+		home.showView(event);
 	}
 
 	@FXML
-	void logout(MouseEvent event) {
-
+	void logout(MouseEvent event) throws Exception {
+		LoginController login = new LoginController();
+		login.showView(event);
 	}
 
 	@FXML
-	void makeSales(MouseEvent event) {
-
+	void makeSales(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Save makeSale = new papeleria_legado.Controllers.Sells.Save();
+		makeSale.showView(event);
 	}
 
 	@FXML
-	void products(MouseEvent event) {
-
+	void products(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
-	void providers(MouseEvent event) {
-
+	void providers(MouseEvent event) throws Exception {
+		Index indexProviders = new Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML
-	void sells(MouseEvent event) {
-
+	void sells(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+		indexSells.showView(event);
 	}
 
 	@FXML
-	void users(MouseEvent event) {
-
+	void users(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Users.Index indexUsers = new papeleria_legado.Controllers.Users.Index();
+		indexUsers.showView(event);
 	}
 
 	@FXML

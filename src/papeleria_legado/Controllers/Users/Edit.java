@@ -1,6 +1,9 @@
 package papeleria_legado.Controllers.Users;
 
 import papeleria_legado.MySQLConnection;
+import papeleria_legado.Controllers.HomeController;
+import papeleria_legado.Controllers.LoginController;
+import papeleria_legado.Controllers.Providers.Index;
 import papeleria_legado.Models.User;
 
 import javafx.event.Event;
@@ -89,43 +92,51 @@ public class Edit {
 	}
 
 	@FXML
-	void cashRegister(MouseEvent event) {
-
+	void cashRegister(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
+		indexCashs.showView(event);
 	}
 
 	@FXML
-	void categories(MouseEvent event) {
-
+	void categories(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Categories.Index indexCategories = new papeleria_legado.Controllers.Categories.Index();
+		indexCategories.showView(event);
 	}
 
 	@FXML
-	void home(MouseEvent event) {
-
+	void home(MouseEvent event) throws Exception {
+		HomeController home = new HomeController();
+		home.showView(event);
 	}
 
 	@FXML
-	void logout(MouseEvent event) {
-
+	void logout(MouseEvent event) throws Exception {
+		LoginController login = new LoginController();
+		login.showView(event);
 	}
 
 	@FXML
-	void makeSales(MouseEvent event) {
-
+	void makeSales(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Save makeSale = new papeleria_legado.Controllers.Sells.Save();
+		makeSale.showView(event);
 	}
 
 	@FXML
-	void products(MouseEvent event) {
-
+	void products(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Products.Index indexProducts = new papeleria_legado.Controllers.Products.Index();
+		indexProducts.showView(event);
 	}
 
 	@FXML
-	void providers(MouseEvent event) {
-
+	void providers(MouseEvent event) throws Exception {
+		Index indexProviders = new Index();
+		indexProviders.showView(event);
 	}
 
 	@FXML
-	void sells(MouseEvent event) {
-
+	void sells(MouseEvent event) throws Exception {
+		papeleria_legado.Controllers.Sells.Index indexSells = new papeleria_legado.Controllers.Sells.Index();
+		indexSells.showView(event);
 	}
 
 	@FXML
@@ -150,6 +161,7 @@ public class Edit {
 			phone.setText(user.getPhone());
 			turn.setValue(user.getTurn());
 			turn.getItems().addAll("Matutino", "Vespertino");
+			rol.getItems().addAll("Dueño", "Cajero");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,13 +170,20 @@ public class Edit {
 
 	@FXML
 	void clickedEdit(MouseEvent event) throws Exception {
-		if (name.getText().isEmpty() && last_name.getText().isEmpty() && username.getText().isEmpty()
-				&& phone.getText().isEmpty() && email.getText().isEmpty() && turn.getValue().isEmpty()) {
+		if (name.getText().isEmpty() || last_name.getText().isEmpty() || username.getText().isEmpty()
+				|| phone.getText().isEmpty() || email.getText().isEmpty() || turn.getValue().isEmpty()
+				|| rol.getValue().isEmpty()) {
 			warningAlert();
 		} else {
 			MySQLConnection mySQL = new MySQLConnection();
+			int newRol = 0;
+			if (rol.getValue().equals("Dueño")) {
+				newRol = 2;
+			} else if (rol.getValue().equals("Cajero")) {
+				newRol = 3;
+			}
 			if (mySQL.editUser(getPkUser(), name.getText(), last_name.getText(), username.getText(), phone.getText(),
-					turn.getValue(), email.getText()) == 1) {
+					turn.getValue(), newRol, email.getText()) == 1) {
 				successfullyAlert();
 				Profile userProfile = new Profile();
 				Profile.setPkUser(getPkUser());

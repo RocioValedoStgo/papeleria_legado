@@ -199,11 +199,6 @@
                   <Font name="Trebuchet MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="nameImage" layoutX="365.0" layoutY="343.0" prefHeight="16.0" prefWidth="246.0" text="Ningún archivo seleccionado" textFill="#777777">
-               <font>
-                  <Font name="Trebuchet MS" size="14.0" />
-               </font>
-            </Label>
             <Label layoutX="238.0" layoutY="259.0" text="Subcategoría">
                <font>
                   <Font name="Trebuchet MS" size="14.0" />
