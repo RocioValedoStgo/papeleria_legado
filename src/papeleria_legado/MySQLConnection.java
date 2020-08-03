@@ -275,8 +275,6 @@ public class MySQLConnection {
 	}
 
 	public boolean saveCategory(String name, int father_id, String image) throws SQLException {
-
-		System.out.println(father_id);
 		connection = getConnection();
 		Timestamp created = generateTimestamp();
 		Statement statement = (Statement) connection.createStatement();

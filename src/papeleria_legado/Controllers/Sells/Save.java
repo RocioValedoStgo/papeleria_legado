@@ -97,7 +97,6 @@ public class Save {
 
 			alert.showAndWait();
 		} else {
-
 			papeleria_legado.Controllers.Cashs.Index indexCashs = new papeleria_legado.Controllers.Cashs.Index();
 			indexCashs.showView(event);
 		}
